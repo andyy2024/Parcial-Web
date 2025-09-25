@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Episodios from "../episodios/page";
 import Favoritos from "../favoritos/page";
-import Episode from "../interfaces";
+import {Episode} from "../interfaces";
+import {NewEpisode} from "../interfaces";
 import { Toaster } from "@/components/ui/sonner"
 import Form from "../form/page";
 
@@ -35,7 +36,7 @@ export default function Menu() {
         setFavorites(favorites.filter(item => item.id !== id))
     }
 
-    const addEpisode = (episode : any) => {
+    const addEpisode = (episode : NewEpisode) => {
         const ch_ids = episode.character_ids
         const path = "https://rickandmortyapi.com/api/character/"
         const newEpisode : Episode = {

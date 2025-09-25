@@ -1,10 +1,10 @@
 import Personaje from "../personaje/page";
-import Episode from "../interfaces";
+import {Episode} from "../interfaces";
 import { toast } from "sonner"
 
 export default function Favoritos({ episodes, deleteFavorito }: {
     episodes: Episode[] | null,
-    deleteFavorito: Function
+    deleteFavorito: (id : number) => void
 }) {
     return (
         <div className="h-[400px] overflow-y-scroll">

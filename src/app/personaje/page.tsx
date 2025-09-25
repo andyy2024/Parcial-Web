@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Character from "../interfaces";
+import {Character} from "../interfaces";
 
 export default function Personaje({ url }: { url: string }) {
     const [character, setCharacter] = useState<Character | null>(null);

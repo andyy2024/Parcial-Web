@@ -1,8 +1,11 @@
+"use client"
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner"
+import {NewEpisode} from "../interfaces"
 
 const idsPattern = /^\d+(?:-\d+)*$/;
 
@@ -20,7 +23,7 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
-export default function Form({ addEpisode }: {addEpisode :Function}) {
+export default function Form({ addEpisode }: {addEpisode :(episode : NewEpisode) => void}) {
   const {
     register,
     handleSubmit,
@@ -41,11 +44,12 @@ export default function Form({ addEpisode }: {addEpisode :Function}) {
       .filter(Boolean)
       .map((n) => Number(n));
 
-    addEpisode({
+    const newEpisode : NewEpisode = {
       name: data.title.trim(),
       character_ids: ids,
       createdAt: new Date(),
-    });
+    }
+    addEpisode(newEpisode);
 
     toast("Nuevo episodio añadido")
 

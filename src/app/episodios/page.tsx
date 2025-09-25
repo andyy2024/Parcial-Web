@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Personaje from "../personaje/page";
-import Episode from "../interfaces";
+import {Episode} from "../interfaces";
 import { toast } from "sonner"
 
 export default function Episodios({ episodes, addFavorito }: {
     episodes: Episode[] | null,
-    addFavorito: Function
+    addFavorito: (id : number) => void 
     }) {
 
     return (

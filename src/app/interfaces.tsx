@@ -1,15 +1,15 @@
 
-export default interface Episode {
+export interface Episode {
     id: number,
-    name: string,
-    air_date: string,
-    episode: string,
+    name?: string,
+    air_date?: string,
+    episode?: string,
     characters: string[],
-    url: string,
-    created: string,
+    url?: string,
+    created?: string,
 }
 
-export default interface Character {
+export interface Character {
     id: number,
     name: string,
     status: string,
@@ -27,4 +27,10 @@ export default interface Character {
     image: string,
     url: string,
     created: string
+}
+
+export interface NewEpisode {
+    name: string,
+    character_ids: number[],
+    createdAt: Date,
 }
